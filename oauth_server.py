@@ -14,15 +14,21 @@ access_tokens = {}
 
 @app.route('/')
 def server_status():
-    print('Server accessed')
-    return 'Server is running!'
+    print('OAuth Server accessed')
+    return 'OAuthServer is running!'
 
 @app.route('/oauth/token', methods=['POST'])
 def token():
     # Extract client credentials and grant type from the request
     client_id = request.form.get('client_id')
     client_secret = request.form.get('client_secret')
+     # Extract grant type from query parameters
     grant_type = request.form.get('grant_type')
+    # grant_type = request.args.get('grant_type')
+
+    print(client_id)
+    print(client_secret)
+    print(grant_type)
     
     # Validate client credentials and grant type
     if (client_id != client_credentials['client_id'] or client_secret != client_credentials['client_secret'] or grant_type != client_credentials['grant_type']):
@@ -48,5 +54,5 @@ def token():
 
 
 if __name__ == '__main__':
-    print("Starting server...")
+    print("Starting OAuthserver...")
     app.run(debug=True)

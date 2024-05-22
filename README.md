@@ -6,7 +6,7 @@
 
 # Description
 ------------
-Creates a dummy OAuth server for testing
+Creates a dummy OAuth server for development testing
 
 
 # Instructions
