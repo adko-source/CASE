@@ -50,7 +50,10 @@ def token():
         'token_type': 'Bearer',
         'expires_in': 3600
     }
-    return jsonify(response)
+
+    json_response = jsonify(response)
+
+    return json_response
 
 
 if __name__ == '__main__':
